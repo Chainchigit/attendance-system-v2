@@ -1,0 +1,81 @@
+Upgrade the current attendance system into a real Face Recognition Attendance System.
+
+Current system already has:
+- React frontend
+- Express backend
+- PostgreSQL database
+- User registration with webcam image capture
+- Attendance records
+
+Now add real-time face recognition with these requirements:
+
+1. Face Recognition
+- Use face-api.js on the frontend
+- Load the required face-api.js models
+- Detect faces from live webcam stream in real time
+- Extract face descriptors from each detected face
+- Compare detected descriptors against registered users
+- Each registered user must have a stored face descriptor
+- If match found, show the user's name on screen
+- If no match, show "Unknown"
+
+2. Registration Upgrade
+- During registration, when capturing the user's image:
+  - Detect the face
+  - Generate and store the face descriptor
+  - Save descriptor in database together with user info
+- Reject registration if no face is detected
+- Reject registration if multiple faces are detected
+
+3. Real-Time Attendance
+- On the Check In page, use live webcam stream
+- Continuously scan faces
+- When a known face is recognized:
+  - Display the user name
+  - Display current date and time
+  - Automatically mark attendance
+- Attendance logic:
+  - First scan of the day = Check-in
+  - Second scan of the day = Check-out
+- Add cooldown protection so the same person cannot trigger repeated attendance within 10 seconds
+
+4. Database Changes
+- Add a column for face descriptor data
+- Store descriptor as JSON or array format
+- Keep existing attendance table
+
+5. UI Improvements
+- Draw face detection box on webcam preview
+- Show label above detected face with:
+  - User name
+  - Match status
+  - Check-in or Check-out
+- Show success message such as:
+  - "Welcome John, checked in at 08:31"
+  - "Goodbye John, checked out at 17:42"
+
+6. Accuracy / Matching
+- Use euclidean distance matching
+- Add configurable face match threshold, default around 0.5 to 0.6
+- Only accept the best match if below threshold
+
+7. Error Handling
+- Show clear message if:
+  - no camera access
+  - no face detected
+  - multiple faces detected
+  - unknown person
+  - duplicate scan during cooldown
+
+8. Keep Existing Architecture
+- Keep React frontend
+- Keep Express backend
+- Keep PostgreSQL
+- Extend the current code, do not rebuild from scratch
+
+9. Bonus
+- Add an admin page or section to list registered users
+- Show whether each user has a saved face descriptor
+- Allow re-registering face data for an existing user
+
+Please implement all required frontend, backend, and database changes, and explain which files were modified.
