@@ -1,0 +1,1 @@
+{"version":3,"file":"registerUserResponse.d.ts","sourceRoot":"","sources":["../../../src/generated/types/registerUserResponse.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,OAAO,KAAK,EAAE,IAAI,EAAE,MAAM,QAAQ,CAAC;AAEnC,MAAM,WAAW,oBAAoB;IACnC,OAAO,EAAE,OAAO,CAAC;IACjB,OAAO,EAAE,MAAM,CAAC;IAChB,IAAI,CAAC,EAAE,IAAI,CAAC;CACb"}
